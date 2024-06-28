@@ -110,7 +110,7 @@ class App < Cuba
     root: File.join(ROOT_PATH, "public")
 
   def custom_render(path, locals = {}, options = {})
-    res.headers["Content-Type"] ||= "text/html; charset=utf-8"
+    res.headers["content-type"] ||= "text/html; charset=utf-8"
     res.write(custom_view(path, locals, options))
   end
 
@@ -286,13 +286,13 @@ class App < Cuba
 
     on get, extension("json") do |file|
       res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
-      res.headers["Content-Type"] = "application/json;charset=UTF-8"
+      res.headers["content-type"] = "application/json;charset=UTF-8"
       res.write File.read(documentation_path + "/#{file}.json")
     end
 
     on get, extension("js") do |file|
       res.headers["Cache-Control"] = "public, max-age=29030400" if req.query_string =~ /[0-9]{10}/
-      res.headers["Content-Type"] = "text/javascript; charset=utf-8"
+      res.headers["content-type"] = "text/javascript; charset=utf-8"
       res.write File.read("views/#{file}.js")
     end
 
