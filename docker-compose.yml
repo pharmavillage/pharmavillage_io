@@ -1,0 +1,8 @@
+services:
+  pharmavillage_io:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "6379:6379"
+      - "9292:9292"

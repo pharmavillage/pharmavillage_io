@@ -1,6 +1,6 @@
 require "tilt/redcarpet"
 
-class RedisTemplate < Tilt::Redcarpet2Template
+class RedisTemplate < Tilt::RedcarpetTemplate
   SECTIONS = {
     "description" => "Description",
     "examples"    => "Examples",
