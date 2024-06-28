@@ -4,5 +4,11 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "6379:6379"
       - "9292:9292"
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"

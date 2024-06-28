@@ -33,7 +33,7 @@ module Kernel
 private
 
   def documentation_path
-    $documentation_path ||= File.expand_path(ENV["REDIS_DOC"] || "redis-doc")
+    $documentation_path ||= File.expand_path(ENV["PHARMAVILLAGE_DOC"] || "pharmavillage-doc")
   end
 
   def commands
@@ -302,6 +302,8 @@ Cuba.define {
     run App
   rescue Exception => e
     res.status = 500
-    res.write "I'm sorry, Dave. I'm afraid I can't do that."
+    res.write "I'm sorry, Dave. I'm afraid I can't do that.\n"
+    res.write "Exception: #{e.message}\n"
+    res.write e.backtrace.join("\n")
   end
 }

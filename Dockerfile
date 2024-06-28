@@ -1,5 +1,5 @@
 # Use an official Ruby runtime as a parent image
-FROM ruby:2.7
+FROM arm64v8/ruby
 
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs git
@@ -19,4 +19,4 @@ EXPOSE 6379
 EXPOSE 9292
 
 # Start the application
-CMD ["sh", "-c", "PHARMAVILLAGE_DOC=/usr/src/app/pharmavillage-doc rackup"]
+CMD ["sh", "-c", "PHARMAVILLAGE_DOC=/usr/src/app/pharmavillage-doc rackup -o 0.0.0.0"]
