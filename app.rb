@@ -40,8 +40,13 @@ private
     $commands ||= Reference.new(JSON.parse(File.read(documentation_path + "/commands.json")))
   end
 
+  # //ANCHOR - Redis
   def new_redis_connection
-    Redis.new(url: ENV["REDISCLOUD_URL"])
+ Redis.new(
+    host: 'redis',
+    port: 6379,
+    password: '227777d4dd1fc61c6f884f'
+  )
   end
 
   def redis
